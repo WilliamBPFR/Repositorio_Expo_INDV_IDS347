@@ -1,0 +1,10 @@
+class CreateNotas < ActiveRecord::Migration[7.0]
+  def change
+    create_table :notas do |t|
+      t.string :title
+      t.text :content
+
+      t.timestamps
+    end
+  end
+end

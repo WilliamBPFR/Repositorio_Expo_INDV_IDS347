@@ -1,0 +1,27 @@
+<h1>Nueva Nota</h1>
+
+<%= form_with model: @nota, url: notas_path, method: :post do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+  
+  <%= form.submit 'Guardar' %>
+<% end %>
+
+<script>
+  <% if @nota.errors.any? %>
+    window.onload = function() {
+      alert("<%= j @nota.errors.full_messages.join(', ') %>");
+    }
+  <% else %>
+    window.onload = function() {
+      window.location.href = '<%= notas_path %>';
+    }
+  <% end %>
+</script>

@@ -1,0 +1,7 @@
+<h1>Lista de Notas</h1>
+
+<% @notas.each do |nota| %>
+  <h2><%= link_to nota.title, nota_path(nota) %></h2>
+<% end %>
+
+<%= link_to 'Crear Nueva Nota', new_nota_path %>
